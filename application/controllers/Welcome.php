@@ -152,7 +152,9 @@ class Welcome extends CI_Controller {
 		$go = $this->input->post();
 		$go['updated_on'] 	= date("Y-m-d H:i:s");
 		$go['userid'] 		= $this->session->userdata('userid');
-		$this->db->insert('tbl_bphtb_log',$go);
+		
+		$this->db->set($go);
+		$this->db->insert('tbl_bphtb_log');
 
 		if($go['usergrup_tujuan']==6)
 		{
@@ -180,7 +182,8 @@ class Welcome extends CI_Controller {
 					);
 
 
-			$this->db->insert('STS_History',$arr);			
+			$this->db->set($arr);
+			$this->db->insert('STS_History');
 			var_dump($arr);
 		}
 
