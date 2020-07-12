@@ -1,6 +1,33 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+function kirim_email($email,$text)
+  {
+    $url = 'https://sibahanpe.pakpakbharatkab.go.id/PHPMailer/pemberitahuan.php';   
+    $jsonData = array(
+        'email' => $email,
+        'text' => $text
+    );
+    $jsonnya = json_encode($jsonData);
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_VERBOSE, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$jsonnya);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+
+    $returned =  curl_exec($ch);
+    return(json_decode($returned));
+  }
+
+
+
 function penyebut($nilai) {
     $nilai = abs($nilai);
     $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");

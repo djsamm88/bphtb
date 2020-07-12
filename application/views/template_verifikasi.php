@@ -64,6 +64,8 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
     var id_bphtb = $("#id_bphtb").val();
     var usergrup_sumber = "<?php echo $usergroup?>";
     var usergrup_tujuan = "<?php echo $usergroup+1?>";
+    $("#btn_lanjut").html("Loading...");
+    $("#btn_tolak").html("Loading...");
     if(confirm("Anda yakin "+txt+" ?"))
     {
       if($("#catatan").val()=="")

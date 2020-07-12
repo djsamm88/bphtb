@@ -26,7 +26,7 @@ $text 		= base64_decode($_GET['text']);
 	//$mail->Port = 465;                                    // TCP port to connect to
 	
 
-	$mail->setFrom('humbahaskab@gmail.com', $_SERVER['SERVER_NAME'].' - System Reset Login');
+	$mail->setFrom('humbahaskab@gmail.com', $_SERVER['SERVER_NAME'].' - System Pemberitahuan');
 	//$mail->addAddress($emailnya, 'Limb');     // Add a recipient
 	$mail->addAddress($emailnya);     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
@@ -38,7 +38,7 @@ $text 		= base64_decode($_GET['text']);
 	//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 	$mail->isHTML(true);                                  // Set email format to HTML
 
-	$mail->Subject = 'Admin Reset Password';
+	$mail->Subject = 'System Pemberitahuan';
 	$mail->Body    = $text;
 	$mail->AltBody = $text;
 
@@ -49,4 +49,6 @@ $text 		= base64_decode($_GET['text']);
 		echo 'Message has been sent';
 	}
 
+}else{
+	echo "required [email],[text] method : [get] ";
 }

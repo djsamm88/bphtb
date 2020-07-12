@@ -111,11 +111,14 @@ class Welcome extends CI_Controller {
 
 			//update tbl_bphtb print_sspd
 			$this->db->query("UPDATE tbl_bphtb SET print_sspd='$filename.pdf' WHERE id_bphtb='$id_bphtb'");
+
+			
 		}
 		 
 		redirect(base_url()."downloads/$filename.pdf","refresh");
 		
 	}
+
 
 	public function template_dokumen($id_bphtb)
 	{
@@ -182,13 +185,47 @@ class Welcome extends CI_Controller {
 					);
 
 
+			/*
 			$this->db->set($arr);
 			$this->db->insert('STS_History');
-			var_dump($arr);
+			*/
+
+
+			//kirim email
+			//email ppat dan Pengguna;
+			$text = "Kode Biling/NO STS = ".$No_STS." <br> Jumlah Setor: Rp.".rupiah($data->jumlah_setor);
+			$email_ppat = $this->m_data->data_email_ppat($id_bphtb);
+			if($email_ppat!="")
+			{
+				var_dump(kirim_email($email_ppat,$text));	
+			}
+			if($data->a_email!="")
+			{
+				var_dump(kirim_email($data->a_email,$text));		
+			}
+
+			//var_dump($arr);
+			echo $text."-".$email_ppat."-".$data->a_email;
 		}
 
 	}
 
+	private function kirim_email($email,$text)
+	{
+		$url = 'https://sibahanpe.pakpakbharatkab.go.id/PHPMailer/pemberitahuan.php';
+		$ch = curl_init($url);
+		$jsonData = array(
+		    'email' => $email,
+		    'text' => $text
+		);
+		$jsonDataEncoded = json_encode($jsonData);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+		$result = curl_exec($ch);
+
+		return $url."".$jsonDataEncoded;
+	}
 
 	public function notif()
 	{

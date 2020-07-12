@@ -65,7 +65,22 @@ class M_data extends CI_Model {
 
 	}
 
-
+	public function data_email_ppat($id_bphtb)
+	{
+		$q = $this->db->query("
+					SELECT a.useremail FROM tbl_users a 
+					INNER JOIN 
+					(
+						SELECT MIN(id_bphtb_log) AS min_id,created_by,id_bphtb 
+						FROM tbl_bphtb_log 
+						WHERE id_bphtb='$id_bphtb'
+						GROUP BY id_bphtb 
+					)b 
+					ON a.userid=b.created_by
+			");
+		$data = $q->result();
+		return $data[0]->useremail;
+	}
 
 	public function data_selesai() {
 		$q = $this->db->query("
