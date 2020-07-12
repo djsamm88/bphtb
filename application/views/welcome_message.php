@@ -369,10 +369,16 @@ function notifyMe(notifnya) {
 }
 
 
-  setTimeout(function() {
+  
+  setTimeout(function(){
+    notif();
+    notif_bank();
+  },2000);
+  setInterval(function() {
          notif();
          notif_bank();
-    }, 3000);
+         console.log("interval");
+    }, 10000);
 
   function notif()
   {
