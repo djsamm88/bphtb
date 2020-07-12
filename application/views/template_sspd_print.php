@@ -1,0 +1,322 @@
+<?php 
+//var_dump($all);
+$data = $all[0];
+?>
+<style type="text/css">
+  .semua{
+    padding: 10px;
+    
+  }
+  .row>div{
+    font-size: 12px;
+  }
+  table,thead,td{
+   font-size: 12px; 
+  }
+  .clear{
+    border-bottom:1px dotted #aaa;
+  }
+  
+
+  body{
+  font-size: 12px;
+}
+
+table tr td, th  { 
+  
+  font-size: 12px; padding:5px;
+  
+
+}
+table th{
+      text-align: center;
+      
+    }
+
+td {
+      
+      padding:5px;
+      
+    }
+
+.semua{
+  border:1px solid #000;
+}
+</style>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="<?php echo base_url()?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+<img src="<?php echo base_url()?>assets/header_sppd.png" width="100%">
+
+
+<div class="semua">
+
+<div>A.</div>
+<div class="row">
+  
+  <div class="col-xs-2">
+    1. Nama Wajib Pajak
+  </div>
+  <div class="col-xs-9">
+    : <?php echo $data->a1?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+  <div class="col-xs-2">
+    2. NPWP
+  </div>
+  <div class="col-xs-9">
+    : <?php echo $data->a2?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+  <div class="col-xs-2">
+    3. Alamat Wajib Pajak
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $data->a3?>
+  </div>
+  <div class="col-xs-1">
+    4. RT/RW
+  </div>
+  <div class="col-xs-1">
+    : <?php echo $data->a4?>
+  </div>
+  <div class="col-xs-1">
+    5. Dusun
+  </div>
+  <div class="col-xs-1">
+    : <?php echo $data->a5?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+
+  <div class="col-xs-2">
+    6. Desa/Kelurahan
+  </div>
+  <div class="col-xs-9">
+    : <?php echo $this->m_data->nm_kelurahan($data->a6)?>
+  </div>
+<div style="clear: both;" class="clear"></div>
+
+  <div class="col-xs-2">
+    7. Kecamatan
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $this->m_data->nm_kecamatan($data->a7)?>
+  </div>
+
+  <div class="col-xs-2">
+    8. Kabupaten/Kota
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $this->m_data->nm_dati2($data->a8)?>
+  </div>
+
+  <div class="col-xs-2">
+    9. Kode Pos
+  </div>
+  <div class="col-xs-2">
+    : <?php echo ($data->a9)?>
+  </div>
+
+  <div style="clear: both;" class="clear"></div>
+
+</div>
+
+
+
+<br>
+<div>B.</div>
+<div class="row">
+  
+  <div class="col-xs-3">
+    1. Nomor Objek Pajak (NOP) PBB
+  </div>
+  <div class="col-xs-8">
+    : <?php echo $data->b1?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+  <div class="col-xs-3">
+    2. Letak tanah dan atau bangunan:
+  </div>
+  <div class="col-xs-8">
+    : <?php echo $data->b2?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+  <div class="col-xs-2">
+    3. Desa/Kelurahan
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $this->m_data->nm_kelurahan($data->b3)?>
+  </div>
+  <div class="col-xs-2">
+    4. RT/RW
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $data->b4?>
+  </div>
+  <div class="col-xs-2">
+    5. Dusun
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $data->b5?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+
+  <div class="col-xs-2">
+    6. Kecamatan
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $this->m_data->nm_kecamatan($data->b6)?>
+  </div>
+
+  <div class="col-xs-2">
+    7. Kabupaten/Kota
+  </div>
+  <div class="col-xs-2">
+    : <?php echo $this->m_data->nm_dati2($data->b7)?>
+  </div>
+
+  <div style="clear: both;" class="clear"></div>
+
+  <br>
+  <div class="col-sm-12">
+    Penghitungan NJOP PBB:
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Uraian</th>
+      <th>Luas </th>
+      <th>NJOP PBB / m2</th>
+      <th>Luas x NJOP PBB / m2</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tanah ( bumi )</td>
+        <td><?php echo $data->b8?> m<sup>2</sup></td>
+        <td>Rp.<?php echo rupiah($data->b10)?></td>
+        <td>Rp.<?php echo rupiah($data->b12)?></td>        
+      </tr>
+
+      <tr>
+        <td>Bangunan</td>
+        <td><?php echo $data->b9?> m<sup>2</sup></td>
+        <td>Rp.<?php echo rupiah($data->b11)?></td>
+        <td>Rp.<?php echo rupiah($data->b13)?></td>        
+      </tr>
+      <tr>        
+        <td colspan="3"></td>
+        <td >Rp.<?php echo rupiah($data->b14)?></td>        
+      </tr>
+      <tr>
+        <td>16.Jenis perolehan hak atas tanah dan atau bangunan</td>
+        <td><?php echo $data->b16?></td>
+        <td>15.Harga transaksi / Nilai pasar:</td>
+        <td>Rp.<?php echo rupiah($data->b15)?></td>        
+      </tr>
+    </tbody>
+  </table>
+
+
+ <div class="col-xs-2">
+    17. Nomor Sertifikat 
+  </div>
+  <div class="col-xs-8">
+    : <?php echo $data->b17?>
+  </div>
+  <div style="clear: both;" class="clear"></div>
+
+</div>
+
+
+
+<br>
+<div>C.PENGHITUNGAN BPHTB ( Hanya diisi berdasarkan penghitungan Wajib Pajak )</div>
+
+<table class="table table-bordered">
+    
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Nilai Perolehan Objek Pajak ( NPOP )   memperhatikan nilai pada kolom 14 dan 15</td>
+        <td>Rp.<?php echo rupiah($data->c1)?></td>
+        
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>Nilai Perolehan Objek Pajak Tidak Kena Pajak ( NPOPTKP )</td>
+        <td>Rp.<?php echo rupiah($data->c2)?></td>
+        
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>Nilai Perolehan Objek Pajak Kena Pajak ( NPOPKP )</td>        
+        <td>Rp.<?php echo rupiah($data->c3)?></td>        
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Bea Perolehan Hak atas Tanah dan Bangunan yang terutang</td>        
+        <td>Rp.<?php echo rupiah($data->c4)?></td>        
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+<br>
+<div>D. Jumlah Setoran berdasarkan</div>
+
+<table class="table table-bordered">
+    
+    <tbody>
+      <tr>
+        <td width="50%">
+          <div class="row">
+          <div class="col-xs-12">
+            <?php echo $data->d_radio?><br>
+            <?php echo $data->d_radio_persen?>
+
+          </div>          
+        </div>
+
+        </td>
+        <td width="50%">
+          <u><b>Dasar Hulum : <?php echo $data->d_radio_hukum?></b></u>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+<table class="table table-bordered">
+    
+    <tbody>
+      <tr>
+        <td width="30%">
+         JUMLAH YANG DISETOR (Dengan angka)<br>
+         Rp.<?php echo rupiah($data->jumlah_setor)?>
+
+        </td>
+        <td width="70%">
+         Dengan Huruf:<br>
+         <b><i><?php echo terbilang($data->jumlah_setor)?></i></b>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
