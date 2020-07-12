@@ -66,6 +66,8 @@ class M_data extends CI_Model {
 	}
 
 
+
+
 	public function notif_bank()
 	{
 		$q = $this->db->query("SELECT a.max_id,b.id_bphtb_log, b.catatan,b.status,b.usergrup_sumber,b.usergrup_tujuan,
