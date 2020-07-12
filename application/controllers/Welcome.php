@@ -56,6 +56,16 @@ class Welcome extends CI_Controller {
 	}
 
 
+
+	public function data_selesai()
+	{
+
+		$data['all'] = $this->m_data->data_selesai();
+
+		$this->load->view('data_selesai',$data);
+	}
+
+
 	public function template_sspd($id_bphtb_log)
 	{
 
@@ -98,6 +108,9 @@ class Welcome extends CI_Controller {
 			$pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date("YmdHis")."_".$this->session->userdata('id_admin')); // Add a footer for good measure <img class="emoji" draggable="false" alt="" src="https://s.w.org/images/core/emoji/72x72/1f609.png">
 			$pdf->WriteHTML($html); // write the HTML into the PDF
 			$pdf->Output($pdfFilePath, 'F'); // save to file because we can
+
+			//update tbl_bphtb print_sspd
+			$this->db->query("UPDATE tbl_bphtb SET print_sspd='$filename.pdf' WHERE id_bphtb='$id_bphtb'");
 		}
 		 
 		redirect(base_url()."downloads/$filename.pdf","refresh");

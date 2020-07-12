@@ -32,6 +32,15 @@
           </a>
         </li>
 
+
+
+        <li>
+          <a href="#" onclick="eksekusi_controller('<?php echo base_url()?>index.php/welcome/data_selesai','Selesai');return false;">
+            <i class="fa fa-check"></i> <span>Selesai</span>
+          </a>
+        </li>
+
+        
         
         <li>
           <a href="#">

@@ -66,8 +66,10 @@
           if($x->Status_Bayar==1)
           {
             $print_sspd = "<button class='btn btn-success btn-xs btn-block' onclick='print_sspd($x->id_bphtb);return false;'>PRINT SSPD</button>";
+            $Status_Bayar = "<b><font color=green>Lunas</font></b>";
           }else{
             $print_sspd = "-";
+            $Status_Bayar = "<b><font color=red>Belum Lunas</font></b>";
           }
 
             echo (" 
@@ -79,7 +81,7 @@
                 <td>$x->a2</td>                                   
                 <td>$x->b1</td>                                
                 <td>$x->No_STS</td>                                
-                <td>$x->Status_Bayar</td>                                
+                <td>$Status_Bayar</td>                                
                 <td>$x->Kode_Pengesahan</td>                                                
                 <td>$x->Kode_Cab</td>                                                
                 <td>$x->Nama_Channel</td>                                                

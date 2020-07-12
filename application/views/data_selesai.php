@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="box-body">
-              
+<div class="table-responsive">              
 <table id="tbl_datanya" class="table  table-striped table-bordered"  cellspacing="0" width="100%">
       <thead>
         <tr>
@@ -35,14 +35,16 @@
               <th>No</th>
               <th>Id Bphtb</th>           
               <th>Nama</th>           
-              <th>NPWP</th>                     
-              <th>ALAMAT</th>                     
+              <th>NPWP</th>                                   
               <th>NOP</th>                     
-              <th>Dari</th>  
-              <th>Catatan</th>                                 
-              <th>Status</th>                                 
-              <th>Update</th>                                 
+              <th>NO STS</th>  
+              <th>Status Bayar</th>                                 
+              <th>Kode Pengesahan</th>                                 
+              <th>Kode Cab</th>                                 
+              <th>Nama Channel</th>                     
+              <th>Kode Terminal</th>                     
               <th>Action</th>                     
+              <th>Print</th>                     
               
               
         </tr>
@@ -52,29 +54,43 @@
         $no = 0;
         foreach($all as $x)
         {
-          $btn = "<button class='btn btn-warning btn-xs btn-block' onclick='view($x->id_bphtb_log);return false;'>Detail</button>
-                  <button class='btn btn-danger btn-xs btn-block' onclick='berkas($x->id_bphtb);return false;'>Berkas</button>    ";
-          $btn .= "<button class='btn btn-primary btn-xs btn-block' onclick='verifikasi($x->id_bphtb);return false;'>Verifikasi</button>";
+         
           $no++;
-
-          $dari = usergroup()[$x->usergrup_sumber];
             
+           $btn = "<button class='btn btn-warning btn-xs btn-block' onclick='view($x->id_bphtb_log);return false;'>Detail</button>
+                  <button class='btn btn-danger btn-xs btn-block' onclick='berkas($x->id_bphtb);return false;'>Berkas</button>    ";
+          $btn .= "<button class='btn btn-primary btn-xs btn-block' onclick='timeline($x->id_bphtb);return false;'>TimeLine</button>"; 
+
+          
+
+          if($x->Status_Bayar==1)
+          {
+            $url_print = base_url()."downloads/".$x->print_sspd;
+            $print_sspd = "<a class='btn btn-success btn-xs btn-block' href='$url_print' target='blank'>PRINT ULANG SSPD</button>";
+            $Status_Bayar = "<b><font color=green>Lunas</font></b>";
+          }else{
+            $print_sspd = "-";
+            $Status_Bayar = "<b><font color=red>Belum Lunas</font></b>";
+          }
+
             echo (" 
               
               <tr>
                 <td>$no</td>
                 <td>$x->id_bphtb</td>
                 <td>$x->a1</td>                
-                <td>$x->a2</td>                
-                <td>$x->a3 - $x->a4 - $x->a5 - ".$this->m_data->nm_kelurahan($x->a6)." - ".$this->m_data->nm_kecamatan($x->a7)." </td>                
-                <td>$x->b1</td>                
-                <td>$dari</td>                                
-                <td>$x->catatan</td>                                
-                <td>$x->status</td>                                
-                <td>$x->updated_on</td>                                
-                <td>
-                  $btn
-                </td>
+                <td>$x->a2</td>                                   
+                <td>$x->b1</td>                                
+                <td>$x->No_STS</td>                                
+                <td>$Status_Bayar</td>                                
+                <td>$x->Kode_Pengesahan</td>                                                
+                <td>$x->Kode_Cab</td>                                                
+                <td>$x->Nama_Channel</td>                                                
+                <td>$x->kode_terminal</td>                                                
+                
+                <td>$print_sspd</td>
+                <td>$btn</td>
+
               </tr>
           ");
           
@@ -84,6 +100,7 @@
         ?>
       </tbody>
   </table>
+</div>
 
 
         </div>
@@ -105,7 +122,7 @@
 }
 </style>
 <!-- Modal -->
-<div id="myModal_data" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-xl">
 
     <!-- Modal content-->
@@ -137,7 +154,7 @@ function view(id_bphtb_log)
 {
   $.get("<?php echo base_url()?>index.php/welcome/template_sspd/"+id_bphtb_log,function(e){
       $("#t4_detail").html(e);
-      $("#myModal_data").modal('show');
+      $("#myModal").modal('show');
   })
 }
 
@@ -145,23 +162,24 @@ function berkas(id_bphtb)
 {
   $.get("<?php echo base_url()?>index.php/welcome/template_dokumen/"+id_bphtb,function(e){
       $("#t4_detail").html(e);
-      $("#myModal_data").modal('show');
+      $("#myModal").modal('show');
   })
 }
 
 
-function verifikasi(id_bphtb)
+function timeline(id_bphtb)
 {
-  $.get("<?php echo base_url()?>index.php/welcome/template_verifikasi/"+id_bphtb,function(e){
+  $.get("<?php echo base_url()?>index.php/welcome/template_timeline/"+id_bphtb,function(e){
       $("#t4_detail").html(e);
-      $("#myModal_data").modal('show');
+      $("#myModal").modal('show');
   })
 }
 
 
 
-$("#myModal_data").on("hidden.bs.modal", function () {
-  eksekusi_controller('<?php echo base_url()?>index.php/welcome/table_data','Verifikasi');
+
+$("#myModal").on("hidden.bs.modal", function () {
+  eksekusi_controller('<?php echo base_url()?>index.php/welcome/data_selesai','Selesai');
 });
 
 $(document).ready(function(){

@@ -34,7 +34,7 @@ $ab=array_diff(dokumen_persyaratan(),$arr_db);
               <td>$y</td>
 
               <td>&#10003;</td>
-              <td>".$arr_dokumen[$x]."</td>
+              <td><a href='https://bphtb.pakpakbharatkab.go.id/uploads/".$arr_dokumen[$x]."' target='blank'>".$arr_dokumen[$x]."</td>
             </tr>
           ";
         }

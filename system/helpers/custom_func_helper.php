@@ -94,6 +94,7 @@ function dokumen_persyaratan(){
     9 => 'Surat bukti kepemilikan Tanah/ Bangunan ',
     10 => 'Akta Jual Beli',
     11 => 'Surat permohonan penerbitan SSPD BPHTB',
+    11 => 'Dokumen Pengajuan Lainnya'
   );
   return $data;
 }
