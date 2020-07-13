@@ -46,6 +46,7 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
         $("#catatan").focus();
         alert("Catatan wajib isi!");
       }else{
+        $("#go_verifikasi").html("<div class='alert alert-warning'>Loading...</div>");
         var ser = {catatan:catatan,id_bphtb:id_bphtb,usergrup_sumber:usergrup_sumber,usergrup_tujuan:usergrup_tujuan};
         $.post("<?php echo base_url()?>index.php/welcome/go_verifikasi",ser,function(e){
             console.log(e);
@@ -64,8 +65,7 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
     var id_bphtb = $("#id_bphtb").val();
     var usergrup_sumber = "<?php echo $usergroup?>";
     var usergrup_tujuan = "<?php echo $usergroup+1?>";
-    $("#btn_lanjut").html("Loading...");
-    $("#btn_tolak").html("Loading...");
+    
     if(confirm("Anda yakin "+txt+" ?"))
     {
       if($("#catatan").val()=="")
@@ -73,6 +73,7 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
         $("#catatan").focus();
         alert("Catatan wajib isi!");
       }else{
+        $("#go_verifikasi").html("<div class='alert alert-warning'>Loading...</div>");
         var ser = {catatan:catatan,id_bphtb:id_bphtb,usergrup_sumber:usergrup_sumber,usergrup_tujuan:usergrup_tujuan};
         $.post("<?php echo base_url()?>index.php/welcome/go_verifikasi",ser,function(e){
             console.log(e);
