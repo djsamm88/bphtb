@@ -179,7 +179,7 @@ function timeline(id_bphtb)
 
 
 $("#myModal").on("hidden.bs.modal", function () {
-  eksekusi_controller('<?php echo base_url()?>index.php/welcome/data_selesai','Selesai');
+  //eksekusi_controller('<?php echo base_url()?>index.php/welcome/data_selesai','Selesai');
 });
 
 $(document).ready(function(){

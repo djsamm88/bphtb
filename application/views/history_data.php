@@ -166,7 +166,7 @@ function timeline(id_bphtb)
 
 
 $("#myModal").on("hidden.bs.modal", function () {
-  eksekusi_controller('<?php echo base_url()?>index.php/welcome/history_data','History');
+  //eksekusi_controller('<?php echo base_url()?>index.php/welcome/history_data','History');
 });
 
 $(document).ready(function(){

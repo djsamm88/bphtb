@@ -155,14 +155,18 @@ function verifikasi(id_bphtb)
   $.get("<?php echo base_url()?>index.php/welcome/template_verifikasi/"+id_bphtb,function(e){
       $("#t4_detail").html(e);
       $("#myModal_data").modal('show');
-  })
+  });
+  close_reload();
 }
 
 
+function close_reload()
+{
 
-$("#myModal_data").on("hidden.bs.modal", function () {
-  eksekusi_controller('<?php echo base_url()?>index.php/welcome/table_data','Verifikasi');
-});
+  $("#myModal_data").on("hidden.bs.modal", function () {
+    eksekusi_controller('<?php echo base_url()?>index.php/welcome/table_data','Verifikasi');
+  });
+}
 
 $(document).ready(function(){
 

@@ -1,7 +1,8 @@
 <?php 
 //var_dump($all);
 $data = $all[0];
-?>
+
+  ?>
 <style type="text/css">
   .semua{
     padding: 10px;
@@ -16,6 +17,10 @@ $data = $all[0];
   .clear{
     border-bottom:1px dotted #aaa;
   }
+  .glyphicon{
+  border: 1px solid;
+  color: #777;
+}
 </style>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link rel="stylesheet" href="<?php echo base_url()?>bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -246,33 +251,71 @@ $data = $all[0];
 <br>
 <div>D. Jumlah Setoran berdasarkan</div>
 
-<table class="table table-bordered">
-    
+
+  <table class="table table-bordered">
     <tbody>
-      <tr>
-        <td width="50%">
-          <div class="row">
-          <div class="col-xs-12">
-            <?php echo $data->d_radio?><br>
-            <?php echo $data->d_radio_persen?>
-
-          </div>          
-        </div>
-
-        </td>
-        <td width="50%">
-          <u><b>Dasar Hulum : <?php echo $data->d_radio_hukum?></b></u>
-
-        </td>
-      </tr>
+      <?php
+      $da_str="a. Penghitungan Wajib Pajak";
+      $db_str="b. STPD BPHTB/SKPDKB KURANG BAYAR/SKPDB<br>KURANG BAYAR TAMBAHA";
+      $dc_str="c. Pengurangan dihitung sendiri Menjadi:";
+      $dd_str="d. ";
+      ccc('a',$da_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ccc('b',$db_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ccc('c',$dc_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ccc('d',$dd_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ?>
     </tbody>
   </table>
+  <?php
+  function ccc($cek,$str,$d_radio,$d_radio_persen,$d_radio_hukum,$jumlah_setor){
+    if($cek==$d_radio){
+      ?>
+      <tr>
+        <td>
+          <i class="glyphicon glyphicon-ok"></i>
+        </td>
+        <td>
+          <?php echo $str?>
+        </td>
+        <td width="150">
+          <?php 
+          if($d_radio=="c"){
+            echo pasang_titik($d_radio_persen)."%";
+            echo " Rp.".pasang_titik($jumlah_setor);
+          }else{
+            echo "Rp.".pasang_titik($jumlah_setor);
+          }
+          ?>
+        </td>
+        <td width="50%">
+          <u>Dasar Hukum : <?php echo $d_radio_hukum?></u>
+        </td>
+      </tr>
+      <?php
+    }else{
+      ?>
+      <tr>
+        <td>
+          <i class="glyphicon">&nbsp;</i>
+        </td>
+        <td>
+          <?php echo $str?>
+        </td>
+        <td></td>
+        <td width="50%">
+        </td>
+      </tr>
+      <?php
+    }
+  }
+  ?>
 
 
 
 <table class="table table-bordered">
     
     <tbody>
+      
       <tr>
         <td width="30%">
          JUMLAH YANG DISETOR (Dengan angka)<br>

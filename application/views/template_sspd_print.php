@@ -41,6 +41,12 @@ td {
 
 .semua{
   border:1px solid #000;
+
+}
+
+.glyphicon{
+  border: 1px solid;
+  color: #777;
 }
 </style>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -275,7 +281,7 @@ td {
 
 <br>
 <div>D. Jumlah Setoran berdasarkan</div>
-
+<!--
 <table class="table table-bordered">
     
     <tbody>
@@ -297,6 +303,66 @@ td {
       </tr>
     </tbody>
   </table>
+-->
+
+
+  <table class="table table-bordered">
+    <tbody>
+      <?php
+      $da_str="a. Penghitungan Wajib Pajak";
+      $db_str="b. STPD BPHTB/SKPDKB KURANG BAYAR/SKPDB<br>KURANG BAYAR TAMBAHA";
+      $dc_str="c. Pengurangan dihitung sendiri Menjadi:";
+      $dd_str="d. ";
+      ccc('a',$da_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ccc('b',$db_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ccc('c',$dc_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ccc('d',$dd_str,$data->d_radio,$data->d_radio_persen,$data->d_radio_hukum,$data->jumlah_setor);
+      ?>
+    </tbody>
+  </table>
+  <?php
+  function ccc($cek,$str,$d_radio,$d_radio_persen,$d_radio_hukum,$jumlah_setor){
+    if($cek==$d_radio){
+      ?>
+      <tr>
+        <td>
+          <i class="glyphicon glyphicon-ok"></i>
+        </td>
+        <td>
+          <?php echo $str?>
+        </td>
+        <td width="150">
+          <?php 
+          if($d_radio=="c"){
+            echo pasang_titik($d_radio_persen)."%";
+            echo " Rp.".pasang_titik($jumlah_setor);
+          }else{
+            echo "Rp.".pasang_titik($jumlah_setor);
+          }
+          ?>
+        </td>
+        <td width="50%">
+          <u>Dasar Hukum : <?php echo $d_radio_hukum?></u>
+        </td>
+      </tr>
+      <?php
+    }else{
+      ?>
+      <tr>
+        <td>
+          <i class="glyphicon">&nbsp;</i>
+        </td>
+        <td>
+          <?php echo $str?>
+        </td>
+        <td></td>
+        <td width="50%">
+        </td>
+      </tr>
+      <?php
+    }
+  }
+  ?>
 
 
 

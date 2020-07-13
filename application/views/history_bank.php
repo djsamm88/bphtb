@@ -189,7 +189,7 @@ function print_sspd(id_bphtb)
 
 
 $("#myModal").on("hidden.bs.modal", function () {
-  eksekusi_controller('<?php echo base_url()?>index.php/welcome/history_bank','History Bank');
+  //eksekusi_controller('<?php echo base_url()?>index.php/welcome/history_bank','History Bank');
 });
 
 $(document).ready(function(){
