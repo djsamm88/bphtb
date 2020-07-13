@@ -280,7 +280,7 @@ $data = $all[0];
         <td width="150">
           <?php 
           if($d_radio=="c"){
-            echo pasang_titik($d_radio_persen)."%";
+            echo rupiah($d_radio_persen)."%";
             echo " Rp.".rupiah($jumlah_setor);
           }else{
             echo "Rp.".rupiah($jumlah_setor);
