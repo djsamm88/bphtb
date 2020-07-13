@@ -72,7 +72,7 @@
                 <td>$x->a3 - $x->a4 - $x->a5 - ".$this->m_data->nm_kelurahan($x->a6)." - ".$this->m_data->nm_kecamatan($x->a7)." </td>                
                 <td>$x->b1</td>                
                 <td>$dari</td>                                
-                <td>$x->catatan</td>                                
+                <td><font color=blue><b>$x->catatan</b></font></td>                                
                 <td>$x->status</td>                                
                 <td>$x->updated_on</td>                                
                 <td>$dari</td>                                
