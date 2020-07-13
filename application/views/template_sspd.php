@@ -281,9 +281,9 @@ $data = $all[0];
           <?php 
           if($d_radio=="c"){
             echo pasang_titik($d_radio_persen)."%";
-            echo " Rp.".pasang_titik($jumlah_setor);
+            echo " Rp.".rupiah($jumlah_setor);
           }else{
-            echo "Rp.".pasang_titik($jumlah_setor);
+            echo "Rp.".rupiah($jumlah_setor);
           }
           ?>
         </td>
