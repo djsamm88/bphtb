@@ -372,12 +372,30 @@ td {
       <tr>
         <td width="30%">
          JUMLAH YANG DISETOR (Dengan angka)<br>
-         Rp.<?php echo rupiah($data->jumlah_setor)?>
+         Rp.<?php 
+                  if($data->jumlah_setor=='NIHIL')
+                  {
+                    echo "NIHIL";
+                  }else{
+                    echo rupiah($data->jumlah_setor);  
+                  }
+                  
+          ?>
 
         </td>
         <td width="70%">
          Dengan Huruf:<br>
-         <b><i><?php echo terbilang($data->jumlah_setor)?></i></b>
+         <b><i>
+          <?php          
+                if($data->jumlah_setor=='NIHIL')
+                  {
+                    echo "NIHIL";
+                  }else{
+                    echo terbilang($data->jumlah_setor);
+                  }
+         ?>
+           
+         </i></b>
 
         </td>
       </tr>
