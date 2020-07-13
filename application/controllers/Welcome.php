@@ -185,10 +185,10 @@ class Welcome extends CI_Controller {
 					);
 
 
-			/*
+			
 			$this->db->set($arr);
 			$this->db->insert('STS_History');
-			*/
+			
 
 
 			//kirim email
