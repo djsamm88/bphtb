@@ -50,7 +50,13 @@ class Api extends CI_Controller {
 					$res->respon_code = "OK";
 					
 					$y = $q[0];
+					
+					$y->KELURAHAN_OP = $this->m_data->nm_kelurahan($y->KELURAHAN_OP);
+					$y->KECAMATAN_OP = $this->m_data->nm_kecamatan($y->KECAMATAN_OP);
+					$y->KOTA_OP = $this->m_data->nm_dati2($y->KOTA_OP);
+
 					$res->result=$y;
+
 
 				}else{
 					$res->respon_code = "Data tidak ditemukan".count($q);
