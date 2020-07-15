@@ -272,7 +272,7 @@ $data = $all[0];
       ?>
       <tr>
         <td>
-          <i class="glyphicon glyphicon-ok"></i>
+          <b>&#10003;</b>
         </td>
         <td>
           <?php echo $str?>
