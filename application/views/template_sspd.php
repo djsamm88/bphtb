@@ -175,15 +175,15 @@ $data = $all[0];
       <tr>
         <td>Tanah ( bumi )</td>
         <td><?php echo $data->b8?> m<sup>2</sup></td>
-        <td>Rp.<?php echo rupiah($data->b10)?></td>
-        <td>Rp.<?php echo rupiah($data->b12)?></td>        
+        <td style="text-align:right">Rp.<?php echo rupiah($data->b10)?></td>
+        <td style="text-align:right">Rp.<?php echo rupiah($data->b12)?></td>        
       </tr>
 
       <tr>
         <td>Bangunan</td>
         <td><?php echo $data->b9?> m<sup>2</sup></td>
-        <td>Rp.<?php echo rupiah($data->b11)?></td>
-        <td>Rp.<?php echo rupiah($data->b13)?></td>        
+        <td style="text-align:right">Rp.<?php echo rupiah($data->b11)?></td>
+        <td style="text-align:right">Rp.<?php echo rupiah($data->b13)?></td>        
       </tr>
       <tr>        
         <td colspan="3"></td>
@@ -193,7 +193,7 @@ $data = $all[0];
         <td>16.Jenis perolehan hak atas tanah dan atau bangunan</td>
         <td><?php echo $data->b16?></td>
         <td>15.Harga transaksi / Nilai pasar:</td>
-        <td>Rp.<?php echo rupiah($data->b15)?></td>        
+        <td style="text-align:right">Rp.<?php echo rupiah($data->b15)?></td>        
       </tr>
     </tbody>
   </table>
@@ -220,26 +220,26 @@ $data = $all[0];
       <tr>
         <td>1</td>
         <td>Nilai Perolehan Objek Pajak ( NPOP )   memperhatikan nilai pada kolom 14 dan 15</td>
-        <td>Rp.<?php echo rupiah($data->c1)?></td>
+        <td style="text-align:right">Rp.<?php echo rupiah($data->c1)?></td>
         
       </tr>
 
       <tr>
         <td>2</td>
         <td>Nilai Perolehan Objek Pajak Tidak Kena Pajak ( NPOPTKP )</td>
-        <td>Rp.<?php echo rupiah($data->c2)?></td>
+        <td style="text-align:right">Rp.<?php echo rupiah($data->c2)?></td>
         
       </tr>
       
       <tr>
         <td>4</td>
         <td>Nilai Perolehan Objek Pajak Kena Pajak ( NPOPKP )</td>        
-        <td>Rp.<?php echo rupiah($data->c3)?></td>        
+        <td style="text-align:right">Rp.<?php echo rupiah($data->c3)?></td>        
       </tr>
       <tr>
         <td>4</td>
         <td>Bea Perolehan Hak atas Tanah dan Bangunan yang terutang</td>        
-        <td>Rp.<?php echo rupiah($data->c4)?></td>        
+        <td style="text-align:right">Rp.<?php echo rupiah($data->c4)?></td>        
       </tr>
     </tbody>
   </table>
@@ -277,7 +277,7 @@ $data = $all[0];
         <td>
           <?php echo $str?>
         </td>
-        <td width="150">
+        <td width="150" style="text-align:right">
           <?php 
           if($d_radio=="c"){
             echo rupiah($d_radio_persen)."%";
@@ -349,5 +349,54 @@ $data = $all[0];
     </tbody>
   </table>
 
+
+
+
+
+<style type="text/css">
+    small{
+      font-size: 10px;
+    }
+    small.border-top{
+      border-top: 1px solid #888;
+    }
+  </style>
+  <table class="table" style="text-align: center;">
+    <tbody>
+      <tr>
+        <td width="25%" height="100">
+          <small style="float: left;">Tanggal</small><br>
+          WAJIB PAJAK /PENYETOR
+        </td>
+        <td width="25%">
+          MENGETAHUI:<br>
+          PPAT / NOTARIS /
+        </td>
+        <td width="25%">
+          DITERIMA OLEH:<br>
+          TEMPAT PEMBAYARAN BPHTB<br>
+          <small>Tanggal</small>
+        </td>
+        <td width="25%">
+          TELAH DIVERIFIKASI<br> 
+          BADAN PENGELOLA KEUANGAN PENDAPATAN DAN ASET DAERAH
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <small class="border-top">Nama lengkap, stempel, dan tanda tangan</small>
+        </td>
+        <td>
+          <small class="border-top">Nama lengkap, stempel, dan tanda tangan</small>
+        </td>
+        <td>
+          <small class="border-top">Nama lengkap, stempel, dan tanda tangan</small>
+        </td>
+        <td>
+          <small class="border-top">Nama lengkap dan tanda tangan</small>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
