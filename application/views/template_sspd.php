@@ -187,7 +187,7 @@ $data = $all[0];
       </tr>
       <tr>        
         <td colspan="3"></td>
-        <td >Rp.<?php echo rupiah($data->b14)?></td>        
+        <td style="text-align:right">Rp.<?php echo rupiah($data->b14)?></td>        
       </tr>
       <tr>
         <td>16.Jenis perolehan hak atas tanah dan atau bangunan</td>
