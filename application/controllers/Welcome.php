@@ -177,9 +177,13 @@ class Welcome extends CI_Controller {
 					'tahun' 	=> $tahun,
 					'Tgl_STS' 	=> $Tgl_STS,
 					'No_STS' 	=> $No_STS,
-					'No_NOP' 	=> $data->nop_pbb,
+					'No_NOP' 	=> $data->b1,
 					'No_Pokok_WP' 	=>  $data->a2,
+					'Jn_Pajak'	=> 'BPHTB',
+					'Nm_Pajak'	=> 'BPHTB',
+					'Mata_Anggaran' => '411121',
 					'Nama_Pemilik' 	=>  $data->a1,
+					'masa_bayar' => date('Y'),
 					'Alamat_Pemilik' 	=>  $data->a3." ".$data->a4." ".$data->a5." ".$this->m_data->nm_kelurahan($data->a6)." ".$this->m_data->nm_kecamatan($data->a7)." ".$this->m_data->nm_dati2($data->a8),
 					'Nilai' 	=>  $data->jumlah_setor
 					);
