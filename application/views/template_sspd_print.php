@@ -421,10 +421,15 @@ td {
         <td width="25%" height="100">
           <small style="float: left;">Tanggal</small><br>
           WAJIB PAJAK /PENYETOR
+          <br><br><br><br><br>
+          <?php echo $data->a1?>
         </td>
         <td width="25%">
           MENGETAHUI:<br>
           PPAT / NOTARIS /
+          <br>
+          <img src="http://bphtb.pakpakbharatkab.go.id/uploads/file_ttd/<?php echo @$this->m_data->penanda_tangan($data->id_bphtb,1)[0]->file_ttd?>" class="img"><br>
+          <?php echo @$this->m_data->penanda_tangan($data->id_bphtb,1)[0]->nama_lengkap?>
         </td>
         <td width="25%">
           DITERIMA OLEH:<br>
@@ -434,6 +439,9 @@ td {
         <td width="25%">
           TELAH DIVERIFIKASI<br> 
           BADAN PENGELOLA KEUANGAN PENDAPATAN DAN ASET DAERAH
+          <br>
+          <img src="http://bphtb.pakpakbharatkab.go.id/uploads/file_ttd/<?php echo @$this->m_data->penanda_tangan($data->id_bphtb,5)[0]->file_ttd?>" class="img"><br>
+          <?php echo @$this->m_data->penanda_tangan($data->id_bphtb,5)[0]->nama_lengkap?>
         </td>
       </tr>
       <tr>
@@ -452,6 +460,5 @@ td {
       </tr>
     </tbody>
   </table>
-
 
 </div>

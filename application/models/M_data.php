@@ -173,6 +173,35 @@ class M_data extends CI_Model {
 		return $q->result();
 	}
 
+	public function penanda_tangan($id_bphtb,$usergroup)
+	{
+		$q = $this->db->query("
+				SELECT 
+					a.id_bphtb_log,
+				    a.usergrup_sumber,
+				    a.userid,
+				    a.id_bphtb,
+				    b.nama_lengkap,
+				    b.file_ttd,
+				    CASE
+				        WHEN usergrup_sumber = 1 THEN 'PPAT'
+				        WHEN usergrup_sumber = 2 THEN 'BPKPAD_STAF'
+				        WHEN usergrup_sumber = 3 THEN 'BPKPAD_ES_IV'
+				        WHEN usergrup_sumber = 4 THEN 'BPKPAD_ES_III'
+				        WHEN usergrup_sumber = 5 THEN 'BPKPAD_ES_II'
+				    END AS ket
+									FROM tbl_bphtb_log a
+									LEFT JOIN tbl_users b ON a.userid=b.userid
+				                    WHERE id_bphtb='$id_bphtb' AND usergrup_sumber='$usergroup'
+									GROUP BY usergrup_sumber
+				                    ORDER BY id_bphtb_log DESC
+				          
+				          
+			");
+		return $q->result();
+	}
+
+
 	public function bphtb_by_id($id_bphtb)
 	{
 		$q = $this->db->query("

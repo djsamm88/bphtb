@@ -108,6 +108,7 @@ function usergroup(){
   return $data;
 }
 
+
 function dokumen_persyaratan(){
   $data = array(
     1 => 'Denah atau peta lokasi',

@@ -70,7 +70,6 @@ class Welcome extends CI_Controller {
 	{
 
 		$data['all'] = $this->m_data->data_by_id($id_bphtb_log);
-
 		$this->load->view('template_sspd',$data);
 	}
 
