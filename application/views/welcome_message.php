@@ -373,10 +373,13 @@ function notifyMe(notifnya) {
   setTimeout(function(){
     notif();
     notif_bank();
+    badge_notif_print();
   },2000);
+
   setInterval(function() {
          notif();
          notif_bank();
+         badge_notif_print();
          console.log("interval");
     }, 10000);
 
@@ -406,6 +409,19 @@ function notifyMe(notifnya) {
         
     });
 
+  }
+
+  function badge_notif_print()
+  {
+     $.get("<?php echo base_url()?>index.php/welcome/notif_print",function(e){
+        if(e=="0")
+        {
+          $(".badge_notif_print").html("");      
+        }else{
+          $(".badge_notif_print").html(e);    
+        }
+        
+    });
   }
 </script>
 </body>

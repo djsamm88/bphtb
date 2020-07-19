@@ -65,6 +65,52 @@ class M_data extends CI_Model {
 
 	}
 
+	public function data_print() {
+		$q = $this->db->query("
+				SELECT a.max_id,b.id_bphtb_log, b.catatan,b.status,b.usergrup_sumber,b.usergrup_tujuan,
+				c.*,d.*,
+				b.updated_on  
+				FROM (
+					SELECT MAX(id_bphtb_log) AS max_id
+					FROM tbl_bphtb_log 
+					GROUP BY id_bphtb
+					ORDER BY id_bphtb_log DESC
+				) a
+				LEFT JOIN tbl_bphtb_log b ON a.max_id=b.id_bphtb_log
+				LEFT JOIN tbl_bphtb c ON b.id_bphtb=c.id_bphtb
+				LEFT JOIN STS_History d ON c.id_bphtb=d.id_bphtb
+				WHERE b.usergrup_tujuan='6' AND d.Status_Bayar='1' AND c.print_sspd=''
+				ORDER BY d.Tgl_Bayar DESC
+		");
+
+		return $q->result();
+
+	}
+
+
+
+	public function notif_print()
+	{
+		$q = $this->db->query("
+			SELECT a.max_id,b.id_bphtb_log, b.catatan,b.status,b.usergrup_sumber,b.usergrup_tujuan,
+				c.*,d.*,
+				b.updated_on  
+				FROM (
+					SELECT MAX(id_bphtb_log) AS max_id
+					FROM tbl_bphtb_log 
+					GROUP BY id_bphtb
+					ORDER BY id_bphtb_log DESC
+				) a
+				LEFT JOIN tbl_bphtb_log b ON a.max_id=b.id_bphtb_log
+				LEFT JOIN tbl_bphtb c ON b.id_bphtb=c.id_bphtb
+				LEFT JOIN STS_History d ON c.id_bphtb=d.id_bphtb
+				WHERE b.usergrup_tujuan='6' AND d.Status_Bayar='1' AND c.print_sspd=''
+				ORDER BY d.Tgl_Bayar DESC
+				");
+		$data = $q->num_rows();
+		return $data;
+	}
+
 	public function data_email_ppat($id_bphtb)
 	{
 		$q = $this->db->query("

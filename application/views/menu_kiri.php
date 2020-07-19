@@ -19,6 +19,12 @@
             <i class="fa fa-check"></i> <span>History Bank <span class="label label-danger pull-right badge_notif_bank"></span></span>
           </a>
         </li>
+
+        <li>
+          <a href="#" onclick="eksekusi_controller('<?php echo base_url()?>index.php/welcome/data_print','Print SSPD');return false;">
+            <i class="fa fa-check"></i> <span>Print SSPD<span class="label label-danger pull-right badge_notif_print"></span></span>
+          </a>
+        </li>
         <?php 
           }
         ?>

@@ -57,6 +57,16 @@ class Welcome extends CI_Controller {
 
 
 
+	public function data_print()
+	{
+
+		$data['all'] = $this->m_data->data_bank();
+
+		$this->load->view('data_print',$data);
+	}
+
+
+
 	public function data_selesai()
 	{
 
@@ -238,6 +248,11 @@ class Welcome extends CI_Controller {
 	public function notif_bank()
 	{
 		echo $this->m_data->notif_bank();
+	}	
+
+	public function notif_print()
+	{
+		echo $this->m_data->notif_print();
 	}	
 
 }
