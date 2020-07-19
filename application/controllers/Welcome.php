@@ -95,7 +95,8 @@ class Welcome extends CI_Controller {
 	public function print_sspd($id_bphtb)
 	{
 		$data['all'] = $this->m_data->bphtb_by_id($id_bphtb);
-		//$this->load->view('template_sspd_print',$data);
+		$this->load->view('template_sspd_print',$data);
+		die();
 
 
 		//var_dump($staff_arr);
