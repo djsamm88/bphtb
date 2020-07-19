@@ -96,7 +96,8 @@ class Welcome extends CI_Controller {
 	{
 		$data['all'] = $this->m_data->bphtb_by_id($id_bphtb);
 		$this->load->view('template_sspd_print',$data);
-		die();
+		//die();
+		/*
 
 
 		//var_dump($staff_arr);
@@ -126,6 +127,7 @@ class Welcome extends CI_Controller {
 		}
 		 
 		redirect(base_url()."downloads/$filename.pdf","refresh");
+		*/
 		
 	}
 
