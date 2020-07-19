@@ -95,11 +95,11 @@ class Welcome extends CI_Controller {
 	public function print_sspd($id_bphtb)
 	{
 		$data['all'] = $this->m_data->bphtb_by_id($id_bphtb);
-		$this->load->view('template_sspd_print',$data);
+		//$this->load->view('template_sspd_print',$data);
 		//die();
 		
 
-		/*
+
 		//var_dump($staff_arr);
 		$filename = "sspd_".$this->router->fetch_class()."_".date('d_m_y_h_i_s')."_".$id_bphtb;				
 		$pdfFilePath = FCPATH."/downloads/$filename.pdf";
@@ -127,7 +127,7 @@ class Welcome extends CI_Controller {
 		}
 		 
 		redirect(base_url()."downloads/$filename.pdf","refresh");
-		*/
+
 		
 	}
 
