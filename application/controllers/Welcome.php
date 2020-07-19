@@ -60,7 +60,7 @@ class Welcome extends CI_Controller {
 	public function data_print()
 	{
 
-		$data['all'] = $this->m_data->data_bank();
+		$data['all'] = $this->m_data->data_print();
 
 		$this->load->view('data_print',$data);
 	}
