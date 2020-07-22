@@ -260,14 +260,14 @@ class M_data extends CI_Model {
 	public function nm_kelurahan($id)
 	{
 		$q = $this->db->query("SELECT * FROM new_ref_kelurahan WHERE KD_KELURAHAN='$id'");
-		$x = $q->result()[0];
+		$x = @$q->result()[0];
 		return $x->NM_KELURAHAN;
 	}
 
 	public function nm_kecamatan($id)
 	{
 		$q = $this->db->query("SELECT * FROM new_ref_kecamatan WHERE KD_KECAMATAN='$id'");
-		$x = $q->result()[0];
+		$x = @$q->result()[0];
 		return $x->NM_KECAMATAN;
 	}
 
@@ -278,7 +278,7 @@ class M_data extends CI_Model {
 			return "PAKPAK BHARAT";
 		}else{
 			$q = $this->db->query("SELECT * FROM new_ref_dati2 WHERE KD_DATI2='$id'");
-			$x = $q->result()[0];
+			$x = @$q->result()[0];
 			return $x->NM_DATI2;	
 		}
 		
