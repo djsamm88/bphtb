@@ -116,7 +116,7 @@ class Welcome extends CI_Controller {
 			//$this->load->library('pdf');
 			//$pdf = $this->pdf->load();
 
-			$pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date("YmdHis")."_".$this->session->userdata('id_admin')); // Add a footer for good measure <img class="emoji" draggable="false" alt="" src="https://s.w.org/images/core/emoji/72x72/1f609.png">
+			//$pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date("YmdHis")."_".$this->session->userdata('id_admin')); // Add a footer for good measure <img class="emoji" draggable="false" alt="" src="https://s.w.org/images/core/emoji/72x72/1f609.png">
 			$pdf->WriteHTML($html); // write the HTML into the PDF
 			$pdf->Output($pdfFilePath, 'F'); // save to file because we can
 
