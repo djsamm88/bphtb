@@ -259,6 +259,44 @@ class M_data extends CI_Model {
 		return $q->result();
 	}
 
+
+
+	public function nm_kelurahan_lama($KD_KELURAHAN)
+	{
+		$q = $this->db->query("
+					SELECT * FROM ref_kelurahan WHERE 
+					KD_KELURAHAN='$KD_KELURAHAN' 
+
+			");
+		$x = @$q->result()[0];
+		return $x->NM_KELURAHAN;
+	}
+
+	public function nm_kecamatan_lama($KD_KECAMATAN)
+	{
+		$q = $this->db->query("SELECT * FROM ref_kecamatan WHERE 
+					KD_KECAMATAN='$KD_KECAMATAN' 
+			");
+		$x = @$q->result()[0];
+		return $x->NM_KECAMATAN;
+	}
+
+	public function nm_dati2_lama($KD_DATI2)
+	{
+		
+			$q = $this->db->query("SELECT * FROM ref_dati2 WHERE 
+									KD_DATI2='$KD_DATI2'
+								");
+			$x = @$q->result()[0];
+			return $x->NM_DATI2;	
+		
+		
+	}
+
+
+
+
+
 	public function nm_kelurahan($KD_PROPINSI,$KD_DATI2,$KD_KECAMATAN,$KD_KELURAHAN)
 	{
 		$q = $this->db->query("
