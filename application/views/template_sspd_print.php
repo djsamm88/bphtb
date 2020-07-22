@@ -101,7 +101,7 @@ td {
     6. Desa/Kelurahan
   </div>
   <div class="col-xs-9">
-    : <?php echo $this->m_data->nm_kelurahan($data->a6)?>
+    : <?php echo @$this->m_data->nm_kelurahan($data->a6)?>
   </div>
 <div style="clear: both;" class="clear"></div>
 
@@ -109,14 +109,14 @@ td {
     7. Kecamatan
   </div>
   <div class="col-xs-2">
-    : <?php echo $this->m_data->nm_kecamatan($data->a7)?>
+    : <?php echo @$this->m_data->nm_kecamatan($data->a7)?>
   </div>
 
   <div class="col-xs-2">
     8. Kabupaten/Kota
   </div>
   <div class="col-xs-2">
-    : <?php echo $this->m_data->nm_dati2($data->a8)?>
+    : <?php echo @$this->m_data->nm_dati2($data->a8)?>
   </div>
 
   <div class="col-xs-2">
@@ -156,7 +156,7 @@ td {
     3. Desa/Kelurahan
   </div>
   <div class="col-xs-2">
-    : <?php echo $this->m_data->nm_kelurahan($data->b3)?>
+    : <?php echo @$this->m_data->nm_kelurahan($data->b3)?>
   </div>
   <div class="col-xs-2">
     4. RT/RW
@@ -177,14 +177,14 @@ td {
     6. Kecamatan
   </div>
   <div class="col-xs-2">
-    : <?php echo $this->m_data->nm_kecamatan($data->b6)?>
+    : <?php echo @$this->m_data->nm_kecamatan($data->b6)?>
   </div>
 
   <div class="col-xs-2">
     7. Kabupaten/Kota
   </div>
   <div class="col-xs-2">
-    : <?php echo $this->m_data->nm_dati2($data->b7)?>
+    : <?php echo @$this->m_data->nm_dati2($data->b7)?>
   </div>
 
   <div style="clear: both;" class="clear"></div>
