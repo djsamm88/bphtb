@@ -51,9 +51,9 @@ class Api extends CI_Controller {
 					
 					$y = $q[0];
 					
-					$y->KELURAHAN_OP = $this->m_data->nm_kelurahan($y->KELURAHAN_OP);
-					$y->KECAMATAN_OP = $this->m_data->nm_kecamatan($y->KECAMATAN_OP);
-					$y->KOTA_OP = $this->m_data->nm_dati2($y->KOTA_OP);
+					$y->KELURAHAN_OP = $this->m_data->nm_kelurahan_lama($y->KOTA_OP,$y->KECAMATAN_OP,$y->KELURAHAN_OP);
+					$y->KECAMATAN_OP = $this->m_data->nm_kecamatan_lama($y->KOTA_OP,$y->KECAMATAN_OP);
+					$y->KOTA_OP = $this->m_data->nm_dati2_lama($y->KOTA_OP);
 
 
 					$y->LUASTANAH = (float) $y->LUASTANAH;
