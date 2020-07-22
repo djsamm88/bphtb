@@ -196,14 +196,23 @@ class Welcome extends CI_Controller {
 					'Mata_Anggaran' => '411121',
 					'Nama_Pemilik' 	=>  $data->a1,
 					'masa_bayar' => date('Y'),
-					'Alamat_Pemilik' 	=>  $data->a3." ".$data->a4." ".$data->a5." ".$this->m_data->nm_kelurahan($data->a6)." ".$this->m_data->nm_kecamatan($data->a7)." ".$this->m_data->nm_dati2($data->a8),
+					'Alamat_Pemilik' 	=>  $data->a3." ".$data->a4." ".$data->a5." ".$this->m_data->nm_kelurahan($data->a8_propinsi,$data->a8,$data->a7,$data->a6)." ".$this->m_data->nm_kecamatan($data->a8_propinsi,$data->a8,$data->a7)." ".$this->m_data->nm_dati2($data->a8_propinsi,$data->a8),
 					'Nilai' 	=>  $data->jumlah_setor
 					);
+
+
 
 
 			
 			$this->db->set($arr);
 			$this->db->insert('STS_History');
+
+			//membuat wajib 
+			if($data->jumlah_setor==0 || $data->jumlah_setor=="")
+			{
+				$id_bphtb=$go['id_bphtb'];
+				$this->db->query("UPDATE STS_History SET Status_bayar='1' WHERE id_bphtb='$id_bphtb'");
+			}
 			
 
 
