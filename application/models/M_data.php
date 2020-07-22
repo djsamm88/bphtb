@@ -251,7 +251,9 @@ class M_data extends CI_Model {
 	public function bphtb_by_id($id_bphtb)
 	{
 		$q = $this->db->query("
-				SELECT * FROM tbl_bphtb WHERE id_bphtb='$id_bphtb';
+				SELECT a.*,b.Tgl_STS,b.No_STS FROM tbl_bphtb a 
+				LEFT JOIN STS_History b ON a.id_bphtb=b.bphtb
+				WHERE id_bphtb='$id_bphtb';
 		");
 
 		return $q->result();

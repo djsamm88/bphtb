@@ -434,7 +434,9 @@ td {
         <td width="25%">
           DITERIMA OLEH:<br>
           TEMPAT PEMBAYARAN BPHTB<br>
-          <small>Tanggal</small>
+          <small><?php echo $data->Tgl_STS?></small>
+          <br><br><br><br>
+          <?php echo $data->No_STS?>
         </td>
         <td width="25%">
           TELAH DIVERIFIKASI<br> 
