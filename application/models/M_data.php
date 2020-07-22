@@ -57,7 +57,7 @@ class M_data extends CI_Model {
 				LEFT JOIN tbl_bphtb_log b ON a.max_id=b.id_bphtb_log
 				LEFT JOIN tbl_bphtb c ON b.id_bphtb=c.id_bphtb
 				LEFT JOIN STS_History d ON c.id_bphtb=d.id_bphtb
-				WHERE b.usergrup_tujuan='6' AND (d.Status_Bayar='' OR d.Status_Bayar='0')
+				WHERE b.usergrup_tujuan='6' AND (d.Status_Bayar='' OR d.Status_Bayar='0') OR (c.jumlah_setor<>'' OR c.jumlah_setor<>0)
 				ORDER BY d.Tgl_Bayar DESC
 		");
 
@@ -79,7 +79,7 @@ class M_data extends CI_Model {
 				LEFT JOIN tbl_bphtb_log b ON a.max_id=b.id_bphtb_log
 				LEFT JOIN tbl_bphtb c ON b.id_bphtb=c.id_bphtb
 				LEFT JOIN STS_History d ON c.id_bphtb=d.id_bphtb
-				WHERE b.usergrup_tujuan='6' AND d.Status_Bayar='1' AND c.print_sspd=''
+				WHERE b.usergrup_tujuan='6' AND (d.Status_Bayar='1' OR (c.jumlah_setor='' OR c.jumlah_setor=0) AND c.print_sspd=''
 				ORDER BY d.Tgl_Bayar DESC
 		");
 
