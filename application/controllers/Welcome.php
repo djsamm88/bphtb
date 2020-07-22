@@ -184,6 +184,12 @@ class Welcome extends CI_Controller {
 			$tbl_bphtb = $this->m_data->bphtb_by_id($go['id_bphtb']);
 			$data = $tbl_bphtb[0];
 
+			if($data->jumlah_setor=="" || $data->jumlah_setor==0)
+			{
+				$Nilai=0;
+			}else{
+				$Nilai=$data->jumlah_setor;
+			}
 			$arr = array(
 					'id_bphtb' 	=> $go['id_bphtb'],
 					'tahun' 	=> $tahun,
@@ -197,7 +203,7 @@ class Welcome extends CI_Controller {
 					'Nama_Pemilik' 	=>  $data->a1,
 					'masa_bayar' => date('Y'),
 					'Alamat_Pemilik' 	=>  $data->a3." ".$data->a4." ".$data->a5." ".$this->m_data->nm_kelurahan($data->a8_propinsi,$data->a8,$data->a7,$data->a6)." ".$this->m_data->nm_kecamatan($data->a8_propinsi,$data->a8,$data->a7)." ".$this->m_data->nm_dati2($data->a8_propinsi,$data->a8),
-					'Nilai' 	=>  $data->jumlah_setor
+					'Nilai' 	=>  $Nilai
 					);
 
 
