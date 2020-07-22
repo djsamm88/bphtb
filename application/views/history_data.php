@@ -67,9 +67,9 @@
               <tr>
                 <td>$no</td>
                 <td>$x->id_bphtb</td>
-                <td>$x->a1</td>                
-                <td>$x->a2</td>                
-                <td>$x->a3 - $x->a4 - $x->a5 - ".@$this->m_data->nm_kelurahan($x->a6)." - ".@$this->m_data->nm_kecamatan($x->a7)." </td>                
+                <td>$x->a1</td>                                
+                <td>$x->a2</td>                                
+                <td>$x->a3 - $x->a4 - $x->a5 - ".@$this->m_data->nm_kelurahan($x->a8_propinsi,$x->a8,$x->a7,$x->a6)." - ".@$this->m_data->nm_kecamatan($x->a8_propinsi,$x->a8,$x->a7)." </td>                
                 <td>$x->b1</td>                
                 <td>$dari</td>                                
                 <td><font color=blue><b>$x->catatan</b></font></td>                                

@@ -72,7 +72,7 @@ $data = $all[0];
     6. Desa/Kelurahan
   </div>
   <div class="col-xs-9">
-    : <?php echo @$this->m_data->nm_kelurahan($data->a6)?>
+    : <?php echo @$this->m_data->nm_kelurahan($x->a8_propinsi,$x->a8,$x->a7,$x->a6)?>
   </div>
 <div style="clear: both;" class="clear"></div>
 
@@ -80,14 +80,14 @@ $data = $all[0];
     7. Kecamatan
   </div>
   <div class="col-xs-2">
-    : <?php echo @$this->m_data->nm_kecamatan($data->a7)?>
+    : <?php echo @$this->m_data->nm_kecamatan($x->a8_propinsi,$x->a8,$x->a7)?>
   </div>
 
   <div class="col-xs-2">
     8. Kabupaten/Kota
   </div>
   <div class="col-xs-2">
-    : <?php echo @$this->m_data->nm_dati2($data->a8)?>
+    : <?php echo @$this->m_data->nm_dati2($x->a8_propinsi,$x->a8)?>
   </div>
 
   <div class="col-xs-2">

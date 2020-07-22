@@ -259,30 +259,41 @@ class M_data extends CI_Model {
 		return $q->result();
 	}
 
-	public function nm_kelurahan($id)
+	public function nm_kelurahan($KD_PROPINSI,$KD_DATI2,$KD_KECAMATAN,$KD_KELURAHAN)
 	{
-		$q = $this->db->query("SELECT * FROM new_ref_kelurahan WHERE KD_KELURAHAN='$id'");
+		$q = $this->db->query("
+					SELECT * FROM new_ref_kelurahan WHERE 
+					KD_KELURAHAN='$KD_KELURAHAN' AND 
+					KD_KECAMATAN='$KD_KECAMATAN' AND 
+					KD_DATI2='$KD_DATI2' AND 
+					KD_PROPINSI='$KD_PROPINSI'
+
+			");
 		$x = @$q->result()[0];
 		return $x->NM_KELURAHAN;
 	}
 
-	public function nm_kecamatan($id)
+	public function nm_kecamatan($KD_PROPINSI,$KD_DATI2,$KD_KECAMATAN)
 	{
-		$q = $this->db->query("SELECT * FROM new_ref_kecamatan WHERE KD_KECAMATAN='$id'");
+		$q = $this->db->query("SELECT * FROM new_ref_kecamatan WHERE 
+					KD_KECAMATAN='$KD_KECAMATAN' AND 
+					KD_DATI2='$KD_DATI2' AND 
+					KD_PROPINSI='$KD_PROPINSI'
+			");
 		$x = @$q->result()[0];
 		return $x->NM_KECAMATAN;
 	}
 
-	public function nm_dati2($id)
+	public function nm_dati2($KD_PROPINSI,$KD_DATI2)
 	{
-		if($id=="")
-		{
-			return "PAKPAK BHARAT";
-		}else{
-			$q = $this->db->query("SELECT * FROM new_ref_dati2 WHERE KD_DATI2='$id'");
+		
+			$q = $this->db->query("SELECT * FROM new_ref_dati2 WHERE 
+									KD_DATI2='$KD_DATI2' AND 
+									KD_PROPINSI='$KD_PROPINSI'
+								");
 			$x = @$q->result()[0];
 			return $x->NM_DATI2;	
-		}
+		
 		
 	}
 
