@@ -224,7 +224,7 @@ class Welcome extends CI_Controller {
 
 			//kirim email
 			//email ppat dan Pengguna;
-			$text = "Kode Biling/NO STS = ".$No_STS." <br> Jumlah Setor: Rp.".rupiah($data->jumlah_setor);
+			$text = "NOP:".$data->b1."<br>  Kode Biling/NO STS = ".$No_STS." <br> Jumlah Setor: Rp.".rupiah($data->jumlah_setor);
 			$email_ppat = $this->m_data->data_email_ppat($id_bphtb);
 			if($email_ppat!="")
 			{
