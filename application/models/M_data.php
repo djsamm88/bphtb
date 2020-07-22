@@ -253,7 +253,7 @@ class M_data extends CI_Model {
 		$q = $this->db->query("
 				SELECT a.*,b.Tgl_STS,b.No_STS FROM tbl_bphtb a 
 				LEFT JOIN STS_History b ON a.id_bphtb=b.bphtb
-				WHERE id_bphtb='$id_bphtb';
+				WHERE a.id_bphtb='$id_bphtb';
 		");
 
 		return $q->result();
