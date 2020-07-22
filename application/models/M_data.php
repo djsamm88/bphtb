@@ -143,7 +143,7 @@ class M_data extends CI_Model {
 				LEFT JOIN tbl_bphtb c ON b.id_bphtb=c.id_bphtb
 				LEFT JOIN STS_History d ON c.id_bphtb=d.id_bphtb
 				WHERE b.usergrup_tujuan='6' AND d.Status_Bayar='1' AND c.print_sspd<>''
-				ORDER BY d.Tgl_Bayar DESC
+				ORDER BY c.id_bphtb DESC
 		");
 
 		return $q->result();
