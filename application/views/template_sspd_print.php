@@ -156,7 +156,7 @@ td {
     3. Desa/Kelurahan
   </div>
   <div class="col-xs-2">
-    : <?php echo @$this->m_data->nm_kelurahan($data->b3)?>
+    : <?php echo @$this->m_data->nm_kelurahan_lama($data->b7,$data->b6,$data->b3)?>
   </div>
   <div class="col-xs-2">
     4. RT/RW
@@ -177,14 +177,14 @@ td {
     6. Kecamatan
   </div>
   <div class="col-xs-2">
-    : <?php echo @$this->m_data->nm_kecamatan($data->b6)?>
+    : <?php echo @$this->m_data->nm_kecamatan_lama($data->b7,$data->b6)?>
   </div>
 
   <div class="col-xs-2">
     7. Kabupaten/Kota
   </div>
   <div class="col-xs-2">
-    : <?php echo @$this->m_data->nm_dati2($data->b7)?>
+    : <?php echo @$this->m_data->nm_dati2_lama($data->b7)?>
   </div>
 
   <div style="clear: both;" class="clear"></div>
@@ -373,7 +373,7 @@ td {
         <td width="30%">
          JUMLAH YANG DISETOR (Dengan angka)<br>
          Rp.<?php 
-                  if($data->jumlah_setor=='NIHIL')
+                  if($data->jumlah_setor=='')
                   {
                     echo "NIHIL";
                   }else{
@@ -387,7 +387,7 @@ td {
          Dengan Huruf:<br>
          <b><i>
           <?php          
-                if($data->jumlah_setor=='NIHIL')
+                if($data->jumlah_setor=='')
                   {
                     echo "NIHIL";
                   }else{
