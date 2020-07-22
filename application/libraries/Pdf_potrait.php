@@ -18,7 +18,7 @@ class pdf_potrait {
         }
          
         //	return new mPDF($param);
-		return new mPDF("en-GB-x","Legal",0,0,10,10,6,20);
+		return new mPDF("en-GB-x","Legal",0,0,10,10,6,5);
 	}
 	
 	

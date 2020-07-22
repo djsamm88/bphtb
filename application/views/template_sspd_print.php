@@ -421,7 +421,7 @@ td {
         <td width="25%" height="100">
           <small style="float: left;">Tanggal</small><br>
           WAJIB PAJAK /PENYETOR
-          <br><br><br><br><br>
+          <br><br><br>
           <?php echo $data->a1?>
         </td>
         <td width="25%">
@@ -435,8 +435,8 @@ td {
           DITERIMA OLEH:<br>
           TEMPAT PEMBAYARAN BPHTB<br>
           <small><?php echo $data->Tgl_STS?></small>
-          <br><br><br><br>
-          <?php echo $data->No_STS?>
+          <br><br>
+          <b><?php echo $data->No_STS?></b>
         </td>
         <td width="25%">
           TELAH DIVERIFIKASI<br> 
