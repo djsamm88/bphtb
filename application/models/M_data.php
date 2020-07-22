@@ -265,7 +265,7 @@ class M_data extends CI_Model {
 	public function nm_kelurahan_lama($KD_DATI2,$KD_KECAMATAN,$KD_KELURAHAN)
 	{
 		$q = $this->db->query("
-					SELECT * FROM new_ref_kelurahan WHERE 
+					SELECT * FROM ref_kelurahan WHERE 
 					KD_KELURAHAN='$KD_KELURAHAN' AND 
 					KD_KECAMATAN='$KD_KECAMATAN' AND 
 					KD_DATI2='$KD_DATI2' 
@@ -278,7 +278,7 @@ class M_data extends CI_Model {
 
 	public function nm_kecamatan_lama($KD_DATI2,$KD_KECAMATAN)
 	{
-		$q = $this->db->query("SELECT * FROM new_ref_kecamatan WHERE 
+		$q = $this->db->query("SELECT * FROM ref_kecamatan WHERE 
 					KD_KECAMATAN='$KD_KECAMATAN' AND 
 					KD_DATI2='$KD_DATI2' 
 			");
@@ -289,7 +289,7 @@ class M_data extends CI_Model {
 	public function nm_dati2_lama($KD_DATI2)
 	{
 		
-			$q = $this->db->query("SELECT * FROM new_ref_dati2 WHERE 
+			$q = $this->db->query("SELECT * FROM ref_dati2 WHERE 
 									KD_DATI2='$KD_DATI2' 
 								");
 			$x = @$q->result()[0];
