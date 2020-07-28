@@ -38,6 +38,15 @@ class Welcome extends CI_Controller {
 
 
 
+	public function data_ppat()
+	{
+
+		$data['all'] = $this->m_data->all_ppat();		
+		$this->load->view('data_ppat',$data);
+	}
+
+
+
 	public function history_data()
 	{
 
@@ -240,6 +249,39 @@ class Welcome extends CI_Controller {
 		}
 
 	}
+
+
+	public function aktifkan_ppat()
+	{
+		$nama_lengkap = $this->input->post('nama_lengkap');
+		$this->db->query("UPDATE tbl_users SET userstatus='1' WHERE nama_lengkap='$nama_lengkap'");
+	}
+
+
+	public function cek_ppat()
+	{
+		$NAMA = $this->input->post('NAMA');
+		$EMAIL = $this->input->post('EMAIL');
+		
+		$jsonData = array(
+		    'NAMA' => $NAMA,
+		    'EMAIL' => $EMAIL,
+		    'USERNAME' => 'bapendapakpakbharat',
+		    'PASSWORD' => 'a'
+
+		);
+		$url = 'http://103.49.37.84:8080/BPNApiService/Api/BPHTB/GetPPAT';
+		
+		$ch = curl_init($url);		
+		$jsonDataEncoded = json_encode($jsonData);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+		$result = curl_exec($ch);
+
+		//echo $url."".$jsonDataEncoded;
+		//echo ($result);
+	}	
 
 	private function kirim_email($email,$text)
 	{

@@ -23,6 +23,18 @@ class M_data extends CI_Model {
 
 	}
 
+
+
+	public function all_ppat() {
+		$q = $this->db->query("
+				SELECT * FROM `tbl_users` WHERE usergroup='1'
+		");
+
+		return $q->result();
+
+	}
+
+
 	public function notif($usergroup)
 	{
 		$q = $this->db->query("SELECT a.max_id,b.id_bphtb_log, b.catatan,b.status,b.usergrup_sumber,b.usergrup_tujuan,

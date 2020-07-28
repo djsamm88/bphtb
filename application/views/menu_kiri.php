@@ -46,6 +46,12 @@
           </a>
         </li>
 
+        <li>
+          <a href="#" onclick="eksekusi_controller('<?php echo base_url()?>index.php/welcome/data_ppat','PPAT');return false;">
+            <i class="fa fa-check"></i> <span>User PPAT</span>
+          </a>
+        </li>
+
         
         
         <li>
