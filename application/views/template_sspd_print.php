@@ -441,8 +441,9 @@ td {
         <td width="25%">
           TELAH DIVERIFIKASI<br> 
           BADAN PENGELOLA KEUANGAN PENDAPATAN DAN ASET DAERAH
+          <br>          
+          <img src="<?php echo base_url()?>assets/phpqrcode/qr.php?text= <?php echo @$this->m_data->penanda_tangan($data->id_bphtb,5)[0]->nama_lengkap?>">
           <br>
-          <img src="http://bphtb.pakpakbharatkab.go.id/uploads/file_ttd/<?php echo @$this->m_data->penanda_tangan($data->id_bphtb,5)[0]->file_ttd?>" width="100%"><br>
           <?php echo @$this->m_data->penanda_tangan($data->id_bphtb,5)[0]->nama_lengkap?>
         </td>
       </tr>

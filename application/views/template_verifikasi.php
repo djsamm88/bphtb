@@ -18,7 +18,8 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
 <b>Form Verifikasi</b>
 <form id="go_verifikasi">
   <input type="text" name="id_bphtb" id="id_bphtb" class="form-control" readonly value="<?php echo $id_bphtb?>">
-  <textarea class="form-control" name="catatan" id="catatan" placeholder="Catatan" required></textarea>
+  <textarea class="form-control" name="catatan" id="catatan" placeholder="Catatan" required></textarea><br>
+
   
   <div class="row">
   <div class="col-xs-6">
@@ -39,6 +40,7 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
     var id_bphtb = $("#id_bphtb").val();
     var usergrup_sumber = "<?php echo $usergroup?>";
     var usergrup_tujuan = "<?php echo $usergroup-1?>";
+    
     if(confirm("Anda yakin "+txt+" ?"))
     {
       if($("#catatan").val()=="")
@@ -65,6 +67,7 @@ $kembalikan_ke = "Kembalikan ke ".usergroup()[$usergroup-1];
     var id_bphtb = $("#id_bphtb").val();
     var usergrup_sumber = "<?php echo $usergroup?>";
     var usergrup_tujuan = "<?php echo $usergroup+1?>";
+    
     
     if(confirm("Anda yakin "+txt+" ?"))
     {

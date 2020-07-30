@@ -101,8 +101,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('konfirm_print_sspd',$data);
 	}
 
-	public function print_sspd($id_bphtb)
+	public function print_sspd()
 	{
+		$id_bphtb = $this->input->get('id_bphtb');
+		$passprahe = $this->input->get('passprahe');
+
 		$data['all'] = $this->m_data->bphtb_by_id($id_bphtb);
 		//$this->load->view('template_sspd_print',$data);
 		//die();
@@ -176,6 +179,10 @@ class Welcome extends CI_Controller {
 		$go = $this->input->post();
 		$go['updated_on'] 	= date("Y-m-d H:i:s");
 		$go['userid'] 		= $this->session->userdata('userid');
+
+		/******* isen moh passprahe ttd *****/
+		$passprahe = $go['passprahe'];
+		unset($go['passprahe']);
 		
 		$this->db->set($go);
 		$this->db->insert('tbl_bphtb_log');
