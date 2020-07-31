@@ -128,12 +128,16 @@ var classnya = "<?php echo $this->router->fetch_class();?>";
 hanya_nomor(".nomor");
 function aktifkan(nama_lengkap)
 {  
+        $("#t4_detail").html("Loading...");        
+        $("#myModal_data").modal('show');
+
     $.post("<?php echo base_url()?>index.php/welcome/cek_ppat",{NAMA:nama_lengkap},function(e){
+      var content="";
+      try {
         var obj = JSON.parse(e);        
         console.log(obj.result);
         //console.log(e);
-        console.log(obj.result.length);
-        var content="";
+        console.log(obj.result.length);        
         if(obj.result.length>0)
         {
           content+="<div class='alert alert-success'><b>"+obj.result[0].NAMA+" Terdaftar di BPN dengan NOID:"+obj.result[0].NOID+"</div><button class='btn btn-primary' onclick='aktifkan_btn(\""+nama_lengkap+"\")'>Aktifkan</button>";
@@ -141,9 +145,14 @@ function aktifkan(nama_lengkap)
           content+="<div class='alert alert-danger'><b>"+nama_lengkap+" Tidak Terdaftar di Server BPN </div>";
         }
 
+      }
+      catch(err) {
+        content+="<div class='alert alert-danger'><b>Server BPN Tidak bisa di akses</div>";
+      }
+  
+
         $("#t4_detail").html(content);
         
-        $("#myModal_data").modal('show');
     });
 }
 

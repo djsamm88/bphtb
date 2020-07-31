@@ -381,7 +381,7 @@ function notifyMe(notifnya) {
          notif_bank();
          badge_notif_print();
          console.log("interval");
-    }, 10000);
+    }, 20000);
 
   function notif()
   {
