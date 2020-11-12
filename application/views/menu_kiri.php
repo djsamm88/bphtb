@@ -53,7 +53,15 @@
         </li>
 
         
-        
+
+
+             <li>
+              <a href="#" onclick="eksekusi_controller('<?php echo base_url()?>index.php/laporan/laporan_all/?tgl_awal=<?php echo date('Y-m-').'01'?>&tgl_akhir=<?php echo date('Y-m-d',strtotime('+1 days'));?>','Laporan Jurnal');return false;">
+                <i class="fa fa-link"></i> <span>Laporan</span>
+              </a>
+            </li>
+
+           
         <li>
           <a href="#">
              &nbsp;

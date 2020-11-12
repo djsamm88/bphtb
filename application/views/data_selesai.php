@@ -59,7 +59,7 @@
             
            $btn = "<button class='btn btn-warning btn-xs btn-block' onclick='view($x->id_bphtb_log);return false;'>Detail</button>
                   <button class='btn btn-danger btn-xs btn-block' onclick='berkas($x->id_bphtb);return false;'>Berkas</button>    ";
-          $btn .= "<button class='btn btn-primary btn-xs btn-block' onclick='timeline($x->id_bphtb);return false;'>TimeLine</button>"; 
+          $btn .= "<button class='btn btn-primary btn-xs btn-block' onclick='timelinenya($x->id_bphtb);return false;'>TimeLine</button>"; 
 
           
 
@@ -167,7 +167,7 @@ function berkas(id_bphtb)
 }
 
 
-function timeline(id_bphtb)
+function timelinenya(id_bphtb)
 {
   $.get("<?php echo base_url()?>index.php/welcome/template_timeline/"+id_bphtb,function(e){
       $("#t4_detail").html(e);

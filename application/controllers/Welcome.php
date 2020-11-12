@@ -46,7 +46,6 @@ class Welcome extends CI_Controller {
 	}
 
 
-
 	public function history_data()
 	{
 
