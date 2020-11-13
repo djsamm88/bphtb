@@ -178,6 +178,7 @@ class Welcome extends CI_Controller {
 		$go = $this->input->post();
 		$go['updated_on'] 	= date("Y-m-d H:i:s");
 		$go['userid'] 		= $this->session->userdata('userid');
+		$go['created_by'] 		= $this->session->userdata('userid');
 
 		/******* isen moh passprahe ttd *****/
 		$passprahe = $go['passprahe'];
