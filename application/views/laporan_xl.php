@@ -41,7 +41,7 @@
     <tr>
       <td rowspan="3" style="height:84pt; text-align:center; vertical-align:middle; width:33pt">NO</td>
       <td rowspan="3" style="text-align:center; vertical-align:middle; width:84pt">TANGGAL REGISTER</td>
-      <td colspan="3" rowspan="2" style="text-align:center; vertical-align:middle; width:194pt">SERTIFIKAT/AKTA</td>
+      <td colspan="2" rowspan="2" style="text-align:center; vertical-align:middle; width:194pt">SERTIFIKAT/AKTA</td>
       <td rowspan="3" style="text-align:center; vertical-align:middle; width:124pt">JENIS PENGALIHAN</td>
       <td colspan="2" rowspan="2" style="text-align:center; vertical-align:middle; width:253pt">PENERIMA PENGALIHAN</td>
       <td colspan="2" rowspan="2" style="text-align:center; vertical-align:middle; width:279pt">MENGALIHKAN</td>
@@ -60,7 +60,7 @@
     </tr>
     <tr>
       <td style="height:32.25pt; text-align:center; vertical-align:middle; white-space:nowrap">No</td>
-      <td style="text-align:center; vertical-align:middle; white-space:nowrap">Tanggal</td>
+      
       <td style="text-align:center; vertical-align:middle; width:81pt">Jenis Dokumen</td>
       <td style="text-align:center; vertical-align:middle; width:158pt">Nama</td>
       <td style="text-align:center; vertical-align:middle; width:95pt">Alamat</td>
@@ -88,7 +88,7 @@
       <td style="height:48pt; text-align:center; vertical-align:middle; white-space:nowrap"><?php echo $no?></td>
       <td style="text-align:center; vertical-align:middle; white-space:nowrap"><?php echo tglindo($key->created_on)?></td>
       <td style="text-align:center; vertical-align:middle; white-space:nowrap"><?php echo $key->b17?></td>
-      <td style="text-align:center; vertical-align:middle; white-space:nowrap"><?php echo tglindo($key->updated_on)?></td>
+      
       <td style="vertical-align:middle; white-space:nowrap">Sertifikat</td>
       <td style="vertical-align:middle; white-space:nowrap"><?php echo $key->b16." - ".array_pengalihan($key->b16)?></td>
       <td style="vertical-align:middle; width:158pt"><?php echo $key->a1?></td>
