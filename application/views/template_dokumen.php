@@ -3,7 +3,7 @@
 $arr_db = array();
 $arr_dokumen = array();
 foreach ($all as $a) {
-  echo dokumen_persyaratan()[$a->id_dokumen_persyaratan]."<br>";
+  //echo dokumen_persyaratan()[$a->id_dokumen_persyaratan]."<br>";
   $arr_db[$a->id_dokumen_persyaratan] = dokumen_persyaratan()[$a->id_dokumen_persyaratan];
   $arr_dokumen[$a->id_dokumen_persyaratan] = $a->file_dokumen;
 }
